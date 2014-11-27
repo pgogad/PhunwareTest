@@ -2,6 +2,8 @@
 <%@ page import="java.util.*, java.io.*" %>
 <html>
     <body>
-        <h2>Hello Heroku!</h2>
+        <h2>Hello Heroku!</h2><br/>
+        <input type="text"></input>
+        
     </body>
 </html>
