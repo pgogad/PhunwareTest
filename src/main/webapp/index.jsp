@@ -49,6 +49,7 @@ $(document).ready(function() {
 				$("#temp").text(data.main.temp);
 				$("#wind").text(data.wind.speed);
 				$("#country").text(data.sys.country);
+				$("#description").text(data.weather.description);
 				
 				var icon_src = "http://openweathermap.org/img/w/"+data.weather[0].icon+".png";
 				$("#icon").attr("src",icon_src);
@@ -79,6 +80,7 @@ $(document).ready(function() {
     	<div id="weather">
         	<div class="row icon"><img src="" id="icon"/></div>
             <div class="row"><div class="label">City</div><div class="left" id="city_name"></div></div>
+             <div class="row"><div class="label">Description</div><div class="left" id="description"></div></div>
             <div class="row"><div class="label">Latitude</div><div class="left" id="lati"></div></div>
             <div class="row"><div class="label">Longitude</div><div class="left" id="longi"></div></div>
             <div class="row"><div class="label">Temperature</div><div class="left" id="temp"></div></div>
