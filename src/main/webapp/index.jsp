@@ -49,7 +49,7 @@ $(document).ready(function() {
 				$("#temp").text(data.main.temp);
 				$("#wind").text(data.wind.speed);
 				$("#country").text(data.sys.country);
-				$("#description").text(data.weather.description);
+				$("#description").text(data.weather[0].description);
 				
 				var icon_src = "http://openweathermap.org/img/w/"+data.weather[0].icon+".png";
 				$("#icon").attr("src",icon_src);
