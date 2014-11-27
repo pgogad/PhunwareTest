@@ -50,10 +50,6 @@ $(document).ready(function() {
 				$("#wind").text(data.wind.speed);
 				$("#country").text(data.sys.country);
 				
-				
-				//html.push('Weather: ', data.weather[0].description);
-			
-			//	$("#weather").append(html.join('')).css("background-color", "orange");
 				var icon_src = "http://openweathermap.org/img/w/"+data.weather[0].icon+".png";
 				$("#icon").attr("src",icon_src);
             },
@@ -93,12 +89,4 @@ $(document).ready(function() {
         
 </div>
 </body>
-<!--     <body>
-        <h2>Hello Heroku!</h2><br/>
-        <form action="/hello" method="post">
-        <input type="text"></input><br/>
-        <input type="submit" onClick="form.submit()" value="submit"/>
-        </form>
-    </body>
- -->
  </html>
