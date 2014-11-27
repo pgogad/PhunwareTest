@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.parser.ParseException;
+
 @WebServlet(name = "PhunwareWeatherServlet", urlPatterns =
 { "/weather" })
 public class PhunwareServlet extends HttpServlet
@@ -26,20 +28,33 @@ public class PhunwareServlet extends HttpServlet
 
 	protected void doGet( HttpServletRequest req, HttpServletResponse resp ) throws ServletException, IOException
 	{
-		getWeatherInfo( req, resp );
+		try
+		{
+			getWeatherInfo( req, resp );
+		}
+		catch ( ParseException e )
+		{
+			e.printStackTrace( );
+		}
 	}
 
-	
 	protected void doPost( HttpServletRequest req, HttpServletResponse resp ) throws ServletException, IOException
 	{
-		getWeatherInfo( req, resp );
+		try
+		{
+			getWeatherInfo( req, resp );
+		}
+		catch ( ParseException e )
+		{
+			e.printStackTrace( );
+		}
 	}
 
-	
-	private void getWeatherInfo( HttpServletRequest req, HttpServletResponse resp ) throws IOException, MalformedURLException, ProtocolException
+	private void getWeatherInfo( HttpServletRequest req, HttpServletResponse resp ) throws IOException, MalformedURLException, ProtocolException,
+			ParseException
 	{
 		ServletOutputStream out = resp.getOutputStream( );
-		
+
 		String city = req.getParameter( "city" );
 		URL url = new URL( "http://api.openweathermap.org/data/2.5/weather?q=" + city );
 
@@ -50,18 +65,18 @@ public class PhunwareServlet extends HttpServlet
 		{
 			throw new RuntimeException( "Failed : HTTP error code : " + conn.getResponseCode( ) );
 		}
-		BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+		BufferedReader br = new BufferedReader( new InputStreamReader( (conn.getInputStream( )) ) );
 		StringBuffer buff = new StringBuffer( );
 		String output;
-		while ((output = br.readLine()) != null) 
+		while( (output = br.readLine( )) != null )
 		{
 			buff.append( output );
-			System.out.println(output);
+			System.out.println( output );
 		}
-		
+
 		out.write( buff.toString( ).getBytes( ) );
 		out.flush( );
 		out.close( );
-		conn.disconnect();
+		conn.disconnect( );
 	}
 }
