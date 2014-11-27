@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -36,17 +35,18 @@ public class PhunwareServlet extends HttpServlet
 			throw new RuntimeException( "Failed : HTTP error code : " + conn.getResponseCode( ) );
 		}
 		BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+		StringBuffer buff = new StringBuffer( );
 		String output;
 		System.out.println("Output from Server .... \n");
 		while ((output = br.readLine()) != null) 
 		{
+			buff.append( output );
 			System.out.println(output);
 		}
- 
-		conn.disconnect();
 		//out.write( "hello heroku".getBytes( ) );
-		out.write( output.getBytes( ) );
+		out.write( buff.toString( ).getBytes( ) );
 		out.flush( );
 		out.close( );
+		conn.disconnect();
 	}
 }
