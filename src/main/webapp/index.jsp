@@ -38,7 +38,7 @@ $(document).ready(function() {
  	 var city = this.value;
 	 $.ajax({
             type: 'POST',
-            url: '/hello?city='+city,
+            url: '/weather?city='+city,
             dataType: "json",
             crossDomain: true,
             success: function (data) {
@@ -73,7 +73,6 @@ $(document).ready(function() {
             <option value="London,uk">London,Uk</option>
             </select>
         </div>
-        
     </div>
     <div class="container">
     	<h1>Weather Information</h1>

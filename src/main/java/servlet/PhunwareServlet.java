@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "PhunwareWeatherServlet", urlPatterns =
-{ "/hello" })
+{ "/weather" })
 public class PhunwareServlet extends HttpServlet
 {
 	/**
@@ -24,10 +24,10 @@ public class PhunwareServlet extends HttpServlet
 	 */
 	private static final long serialVersionUID = 1L;
 
-//	protected void doGet( HttpServletRequest req, HttpServletResponse resp ) throws ServletException, IOException
-//	{
-//		getWeatherInfo( resp );
-//	}
+	protected void doGet( HttpServletRequest req, HttpServletResponse resp ) throws ServletException, IOException
+	{
+		getWeatherInfo( req, resp );
+	}
 
 	
 	protected void doPost( HttpServletRequest req, HttpServletResponse resp ) throws ServletException, IOException
@@ -41,10 +41,8 @@ public class PhunwareServlet extends HttpServlet
 		ServletOutputStream out = resp.getOutputStream( );
 		
 		String city = req.getParameter( "city" );
-		//System.out.println( "City Requested : " + city );
-		//http://api.openweathermap.org/data/2.5/weather?q=
 		URL url = new URL( "http://api.openweathermap.org/data/2.5/weather?q=" + city );
-		//URL url = new URL( "http://api.openweathermap.org/data/2.5/weather?id=2172797" );
+
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection( );
 		conn.setRequestMethod( "GET" );
 		conn.setRequestProperty( "Accept", "application/json" );
@@ -55,12 +53,12 @@ public class PhunwareServlet extends HttpServlet
 		BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
 		StringBuffer buff = new StringBuffer( );
 		String output;
-		//System.out.println("Output from Server .... \n");
 		while ((output = br.readLine()) != null) 
 		{
 			buff.append( output );
 			System.out.println(output);
 		}
+		
 		out.write( buff.toString( ).getBytes( ) );
 		out.flush( );
 		out.close( );
