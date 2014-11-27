@@ -69,7 +69,7 @@ $(document).ready(function() {
 	<div class="container">
     	<div class="col-lg-1">
         	<select id="city" class="dropdown">
-            <option>Select City</option>
+            <option >Select City</option>
             <option value="Dallas,tx">Dallax,TX</option>
             <option value="London,uk">London,Uk</option>
             </select>
@@ -80,7 +80,7 @@ $(document).ready(function() {
     	<div id="weather">
         	<div class="row icon"><img src="" id="icon"/></div>
             <div class="row"><div class="label">City</div><div class="left" id="city_name"></div></div>
-             <div class="row"><div class="label">Description</div><div class="left" id="description"></div></div>
+            <div class="row"><div class="label">Description</div><div class="left" id="description"></div></div>
             <div class="row"><div class="label">Latitude</div><div class="left" id="lati"></div></div>
             <div class="row"><div class="label">Longitude</div><div class="left" id="longi"></div></div>
             <div class="row"><div class="label">Temperature</div><div class="left" id="temp"></div></div>
