@@ -3,7 +3,9 @@
 <html>
     <body>
         <h2>Hello Heroku!</h2><br/>
-        <input type="text"></input>
-        
+        <form action="/hello" method="post">
+        <input type="text"></input><br/>
+        <input type="submit" onClick="form.submit()" value="submit">Submit</input>
+        </form>
     </body>
 </html>

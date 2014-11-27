@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 
 import javax.servlet.ServletException;
@@ -22,8 +24,19 @@ public class PhunwareServlet extends HttpServlet
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@SuppressWarnings("null")
-	protected void doGet( HttpServletRequest req, HttpServletResponse resp ) throws ServletException, IOException
+//	protected void doGet( HttpServletRequest req, HttpServletResponse resp ) throws ServletException, IOException
+//	{
+//		getWeatherInfo( resp );
+//	}
+
+	
+	protected void doPost( HttpServletRequest req, HttpServletResponse resp ) throws ServletException, IOException
+	{
+		getWeatherInfo( resp );
+	}
+
+	
+	private void getWeatherInfo( HttpServletResponse resp ) throws IOException, MalformedURLException, ProtocolException
 	{
 		ServletOutputStream out = resp.getOutputStream( );
 		URL url = new URL( "http://api.openweathermap.org/data/2.5/weather?id=2172797" );
@@ -43,7 +56,6 @@ public class PhunwareServlet extends HttpServlet
 			buff.append( output );
 			System.out.println(output);
 		}
-		//out.write( "hello heroku".getBytes( ) );
 		out.write( buff.toString( ).getBytes( ) );
 		out.flush( );
 		out.close( );
