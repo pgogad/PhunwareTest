@@ -32,14 +32,19 @@ public class PhunwareServlet extends HttpServlet
 	
 	protected void doPost( HttpServletRequest req, HttpServletResponse resp ) throws ServletException, IOException
 	{
-		getWeatherInfo( resp );
+		getWeatherInfo( req, resp );
 	}
 
 	
-	private void getWeatherInfo( HttpServletResponse resp ) throws IOException, MalformedURLException, ProtocolException
+	private void getWeatherInfo( HttpServletRequest req, HttpServletResponse resp ) throws IOException, MalformedURLException, ProtocolException
 	{
 		ServletOutputStream out = resp.getOutputStream( );
-		URL url = new URL( "http://api.openweathermap.org/data/2.5/weather?id=2172797" );
+		
+		String city = req.getParameter( "city" );
+		//System.out.println( "City Requested : " + city );
+		//http://api.openweathermap.org/data/2.5/weather?q=
+		URL url = new URL( "http://api.openweathermap.org/data/2.5/weather?q=" + city );
+		//URL url = new URL( "http://api.openweathermap.org/data/2.5/weather?id=2172797" );
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection( );
 		conn.setRequestMethod( "GET" );
 		conn.setRequestProperty( "Accept", "application/json" );
@@ -50,7 +55,7 @@ public class PhunwareServlet extends HttpServlet
 		BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
 		StringBuffer buff = new StringBuffer( );
 		String output;
-		System.out.println("Output from Server .... \n");
+		//System.out.println("Output from Server .... \n");
 		while ((output = br.readLine()) != null) 
 		{
 			buff.append( output );
