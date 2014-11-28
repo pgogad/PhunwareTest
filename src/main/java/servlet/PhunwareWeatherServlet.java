@@ -54,7 +54,7 @@ public class PhunwareWeatherServlet extends HttpServlet
 		while( (output = br.readLine( )) != null )
 		{
 			buff.append( output );
-			System.out.println( output );
+			//System.out.println( output );
 		}
 
 		out.write( buff.toString( ).getBytes( ) );
