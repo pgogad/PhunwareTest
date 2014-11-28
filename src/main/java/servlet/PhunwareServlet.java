@@ -39,7 +39,7 @@ public class PhunwareServlet extends HttpServlet
 		ServletOutputStream out = resp.getOutputStream( );
 
 		String city = req.getParameter( "city" );
-		URL url = new URL( "http://api.openweathermap.org/data/2.5/weather?q=" + city );
+		URL url = new URL( "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&&units=metric");
 
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection( );
 		conn.setRequestMethod( "GET" );
