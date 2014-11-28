@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "PhunwareWeatherServlet", urlPatterns =
 { "/weather" })
-public class PhunwareServlet extends HttpServlet
+public class PhunwareWeatherServlet extends HttpServlet
 {
 	/**
 	 * 
