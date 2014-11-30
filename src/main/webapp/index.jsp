@@ -46,14 +46,17 @@ $(document).ready(function(){
 			crossDomain: true,
 			success: function (data){
 				
-				var parent = document.getElementById('wrapper');
+				var parent = document.getElementById('weatherforecast');
+				while(parent.firstChild)
+				{
+					parent.removeChild(parent.firstChild);
+				}
+				
 				var container = document.createElement('div');
 				container.className = 'container';
 				
 				for(var i = 0; i < data.cnt; i++)
 					{
-					
-				 	
 					 	var div = document.createElement('div');
 					 	div.className = 'weather';
 					 	var divId = 'f'+i;
@@ -128,6 +131,12 @@ $(document).ready(function(){
 
 $(document).ready(function() {
 	$('#city').on('change', function() {
+	var parent = document.getElementById('weatherforecast');
+	while(parent.firstChild)
+	{
+		parent.removeChild(parent.firstChild);
+	}
+
  	 var city = this.value;
 	 $.ajax({
             type: 'POST',
@@ -183,7 +192,9 @@ $(document).ready(function() {
             <div class="row"><div class="label">Country</div><div class="left" id="country"></div></div>
     	</div>
     	
-    	<a href="#" id="forecast" title="5 Day forecast">Click for 5 day forecast</a>
+    	<a href="#" id="forecast" title="5 Day forecast">Click here for 5 day forecast</a>
+    	
+    	<div id="weatherforecast"></div>
         
 </div>
 </body>
