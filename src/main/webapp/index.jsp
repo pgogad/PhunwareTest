@@ -62,6 +62,16 @@ $(document).ready(function(){
 					 	var divId = 'f'+i;
 					 	div.setAttribute("id",divId);
 					 	
+
+					 	
+					 	var icon_src = 'http://openweathermap.org/img/w/'+data.list[i].weather[0].icon+'.png';
+					 	var img = document.createElement("IMG");
+					 	img.setAttribute('src',icon_src);
+					 	img.id = 'i'+i;
+					 	img.className = 'row icon';
+					 	div.appendChild(img);
+					 	
+					 	
 					 	var innerDiv = document.createElement('div');
 					 	innerDiv.className = 'row';
 					 	
@@ -114,11 +124,7 @@ $(document).ready(function(){
 					 	innerDiv.appendChild(valueDiv);
 					 	
 					 	div.appendChild(innerDiv);
-					 	
-					 	//'<h2>'+data.list[i].dt+'</h2>';
 					 	container.appendChild(div);
-					 	
-					 	
 					}
 				parent.appendChild(container);
 			},
