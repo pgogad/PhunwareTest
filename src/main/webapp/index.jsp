@@ -26,7 +26,7 @@ padding:10px;
 
 .weather{background:#CCC;border:1px solid #999;width:250px;border-radius:2px;margin-top:50px;padding:10px;float:left; margin-right: 10px}
 .row{height:30px;,margin:0;margin-left:20px;}	
-.icon{height:50px;padding:10px;}
+.icon{height:75px;padding:10px;}
 </style>
 <!-- include Google hosted jQuery Library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
