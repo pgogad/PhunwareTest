@@ -174,7 +174,7 @@ $(document).ready(function() {
 		<div class="container">
     		<div class="col-lg-1">
         	<select id="city" class="dropdown">
-            	<option >Select City</option>
+            	<option value="Austin,tx">Select City</option>
             	<option value="Dallas,tx">Dallax,TX</option>
             	<option value="London,uk">London,Uk</option>
             </select>
