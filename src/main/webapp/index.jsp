@@ -154,8 +154,10 @@ $(document).ready(function() {
 				$("#city_name").text(data.name);
 				$("#lati").text(data.coord.lat);
 				$("#longi").text(data.coord.lon);
-				$("#temp").text(data.main.temp + ' C');
-				$("#wind").text(data.wind.speed + ' kmph');
+				var temp=data.main.temp+' C';
+				$("#temp").text(temp);
+				var speed=data.wind.speed + ' kmph';
+				$("#wind").text(speed);
 				$("#country").text(data.sys.country);
 				$("#description").text(data.weather[0].description);
 				
