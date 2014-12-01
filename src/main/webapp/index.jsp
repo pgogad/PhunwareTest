@@ -181,6 +181,7 @@ $(document).ready(function() {
     		<div class="col-lg-1">
         	<select id="city" class="dropdown">
             	<option value="Austin,tx">Select City</option>
+            	<option value="Austin,tx">Austin,TX</option>
             	<option value="Dallas,tx">Dallas,TX</option>
             	<option value="London,uk">London,Uk</option>
             </select>
